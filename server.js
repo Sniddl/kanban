@@ -7,7 +7,7 @@ const nunjucks    =  require('nunjucks')
 const bodyParser  =  require('body-parser')
 const _           =  require('lodash')
 
-const redis = new Redis();
+//const redis = new Redis();
 nunjucks.configure('views', {
   autoescape: true,
   express: app
@@ -18,3 +18,11 @@ server.listen(8000)
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
+
+
+app.get('/', index)
+
+
+function index(req, res) {
+  res.render('index.html')
+}
