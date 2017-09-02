@@ -37,8 +37,8 @@ function readRoute (route) {
   .then((data)=> {
     _.forEach(data, (o) => {
       _.forEach(o.routes, (route)=> {
-        // console.log(route);
-        var mod = path.join(__dirname, '../../controllers', o.controller.trim())
+        var mod = path.join(path.normalize(__dirname), '../../controllers', o.controller.trim())
+            mod = mod.split('\\').join('\\\\')
         dataToWrite += `\n\tapp.${o.action.toLowerCase()}('${route.trim()}', require('${mod}.js').${o.method.trim()});`
       })
     })
@@ -50,7 +50,8 @@ module.exports = () => {
   return Promise.all(promises)
           .then(values => {
             var data = `module.exports = (app) => {`
-            data += values.join('') + '\n}'
+              // console.log(values.join(''));
+            data += values.join('') + '}'
             return $p.writeFile('cache/routes.js', data)
           })
 }
