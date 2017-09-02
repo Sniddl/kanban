@@ -1,0 +1,1 @@
+GET: /:amount? -> home@index

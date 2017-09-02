@@ -7,8 +7,8 @@ const nunjucks    =  require('nunjucks')
 const bodyParser  =  require('body-parser')
 const _           =  require('lodash')
 
-//const redis = new Redis();
-nunjucks.configure('views', {
+// const redis = new Redis();
+nunjucks.configure('resources/views', {
   autoescape: true,
   express: app
 })
@@ -19,10 +19,10 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
 
+require('./app/kernel/methods/routeParser.js')()
+.then(()=>{
+  console.log('ready');
+  require('./cache/routes.js')(app)
+})
 
-app.get('/', index)
-
-
-function index(req, res) {
-  res.render('index.html')
-}
+//
