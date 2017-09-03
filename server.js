@@ -6,6 +6,7 @@ const Redis       =  require('ioredis');
 const nunjucks    =  require('nunjucks')
 const bodyParser  =  require('body-parser')
 const _           =  require('lodash')
+const snoo        =  require('snoowrap')
 
 // const redis = new Redis();
 nunjucks.configure('resources/views', {
