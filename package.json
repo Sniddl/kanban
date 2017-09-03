@@ -12,7 +12,8 @@
     "prod": "npm run production",
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "test": "node server.js",
-    "redis": "docker run -p 0.0.0.0:6379:6379 --name redis-server -d redis"
+    "redis": "docker run -p 0.0.0.0:6379:6379 --name redis-server -d redis",
+    "all": "npm test && npm run redis"
   },
   "repository": {
     "type": "git",
@@ -41,6 +42,7 @@
     "lodash": "^4.17.4",
     "nunjucks": "^3.0.1",
     "redis": "^2.8.0",
+    "snoowrap": "^1.14.2",
     "socket.io": "^2.0.3",
     "vue": "^2.4.2",
     "vue-socket.io": "^2.1.1-a"
