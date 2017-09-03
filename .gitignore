@@ -1,1 +1,4 @@
 node_modules
+docker-build*
+.DS_Store
+cache/*
