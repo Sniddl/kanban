@@ -1,3 +1,3 @@
 module.exports = (app) => {
-	app.post('/api/example', require('C:\\Users\\zeb\\Documents\\kanban\\app\\controllers\\home.js').example);
-	app.get('/:amount?', require('C:\\Users\\zeb\\Documents\\kanban\\app\\controllers\\home.js').index);}
+	app.get('/', require('/Volumes/Storage/Code/kanban/app/controllers/APIController.js').AuthURL);
+	app.get('/verified', require('/Volumes/Storage/Code/kanban/app/controllers/APIController.js').Verified);}

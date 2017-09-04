@@ -1,1 +1,2 @@
-POST: /api/example -> home@example
+GET: / -> APIController@AuthURL
+GET: /verified -> APIController@Verified

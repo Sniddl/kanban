@@ -43774,7 +43774,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_vm._v("Log on client")]), _vm._v(" "), _c('h4', [_vm._v("About:")]), _vm._v(" "), _vm._m(0)])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('p', [_vm._v("Each component can be in it's own scope. It's almost like writing object oriented html/css. Open the "), _c('pre', [_vm._v("resources/js/component/example.vue ")]), _vm._v(" file to check it out.")])
+  return _c('p', [_vm._v("Each component can be in it's own scope. It's almost like writing object oriented html/css. Open the "), _c('pre', [_vm._v("resources/js/component/example.vue ")]), _vm._v(" file to check it out!")])
 }]}
 module.exports.render._withStripped = true
 if (false) {

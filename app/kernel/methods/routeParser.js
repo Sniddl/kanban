@@ -3,15 +3,7 @@ const fs = require('fs')
 const $p = require('./promises.js')
 const path = require('path')
 
-let promises = []
 
-
-fs.readdirSync('./routes').forEach(file => {
-  var p = new Promise(function(resolve, reject) {
-    resolve(readRoute('routes/'+file))
-  });
-  promises.push(p)
-})
 
 function readRoute (route) {
   let dataToWrite = ''
@@ -41,16 +33,24 @@ function readRoute (route) {
             mod = mod.split('\\').join('\\\\')
         dataToWrite += `\n\tapp.${o.action.toLowerCase()}('${route.trim()}', require('${mod}.js').${o.method.trim()});`
       })
+      console.log(`[OK]   Added route.`);
     })
     return dataToWrite
   })
 }
 
 module.exports = () => {
+  let promises = []
+  fs.readdirSync('./routes').forEach(file => {
+    var p = new Promise(function(resolve, reject) {
+      resolve(readRoute('routes/'+file))
+    });
+    promises.push(p)
+  })
+  
   return Promise.all(promises)
           .then(values => {
             var data = `module.exports = (app) => {`
-              // console.log(values.join(''));
             data += values.join('') + '}'
             return $p.writeFile('cache/routes.js', data)
           })

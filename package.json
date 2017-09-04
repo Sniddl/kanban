@@ -11,9 +11,9 @@
     "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod": "npm run production",
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "test": "node server.js",
+    "test": "node app/kernel/methods/serverWatcher.js | npm run watch",
     "redis": "docker run -p 0.0.0.0:6379:6379 --name redis-server -d redis",
-    "all": "npm test && npm run redis"
+    "all": "npm test | npm run redis"
   },
   "repository": {
     "type": "git",
@@ -40,6 +40,7 @@
     "ioredis": "^3.1.4",
     "jquery": "^3.2.1",
     "lodash": "^4.17.4",
+    "node-watch": "^0.5.5",
     "nunjucks": "^3.0.1",
     "redis": "^2.8.0",
     "snoowrap": "^1.14.2",

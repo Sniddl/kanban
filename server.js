@@ -7,15 +7,19 @@ const nunjucks    =  require('nunjucks')
 const bodyParser  =  require('body-parser')
 const _           =  require('lodash')
 const snoowrap    =  require('snoowrap')
-const $env        =  require('env.json')
-
+const $env        =  require('./env.json')
+const path        =  require('path')
 
 
 // const redis = new Redis();
+
+global.__root = path.resolve(__dirname)
 nunjucks.configure('resources/views', {
   autoescape: true,
   express: app
 })
+
+
 
 const snoo = new snoowrap({
   userAgent: $env.reddit.userAgent,
@@ -24,6 +28,8 @@ const snoo = new snoowrap({
   refreshToken: $env.reddit.refreshToken
 })
 
+require('./cache/routes.js')(app)
+
 
 server.listen(8000)
 
@@ -31,10 +37,6 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
 
-require('./app/kernel/methods/routeParser.js')()
-.then(()=>{
-  console.log('ready');
-  require('./cache/routes.js')(app)
-})
+
 
 //
