@@ -2,6 +2,24 @@
 {% block body %}
 
 <!-- This is a vue component -->
-<example v-for="n in {{amount}}"></example>
+{% raw %}
+<div class="endpoints">
+  <a href="#mysubreddits">endpoints@mysubreddits</a>
+  <hr>
+  <h4 id="mysubreddits">endpoints@mysubreddits</h4>
+  <div class="invis" v-for="(sub, key) in endpoints.mysubreddits">
+    <li>
+      <span>
+        <div class="prop"><strong>created_utc:</strong> {{sub.created_utc}}</div>
+        <div class="prop"><strong>display_name:</strong> {{sub.display_name}}</div>
+        <div class="prop"><strong>mod_permissions:</strong> {{sub.mod_permissions}}</div>
+        <div class="prop"><strong>subreddit_type:</strong> {{sub.subreddit_type}}</div>
+        <div class="prop"><strong>subscribers:</strong> {{sub.subscribers}}</div>
+      </span>
+    </li>
+  </div>
+</div>
+
+{% endraw %}
 
 {% endblock %}

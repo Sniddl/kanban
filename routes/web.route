@@ -1,1 +1,1 @@
-GET: /:amount? -> home@index
+GET: /dashboard -> home@dashboard

@@ -3,7 +3,7 @@
     <button @click="logToServer">Log on server</button>
     <button @click="logToClient">Log on client</button>
     <h4>About:</h4>
-    <p>Each component can be in it's own scope. It's almost like writing object oriented html/css. Open the <pre>resources/js/component/example.vue </pre> file to check it out.</p>
+    <p>Each component can be in it's own scope. It's almost like writing object oriented html/css. Open the <pre>resources/js/component/example.vue </pre> file to check it out!</p>
   </div>
 </template>
 
