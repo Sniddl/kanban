@@ -17,7 +17,7 @@ AuthURL (req, res) {
 Accepted (req, res) {
   if (req.query.error) return res.send('Error: Looks like something went wrong in the authorization process')
   if (req.query.state !== 'getAuthURL')return res.send('This STATE is not what we expected.')
-    
+
     axios.request({
       url: 'https://www.reddit.com/api/v1/access_token',
       method: 'post',
@@ -52,7 +52,8 @@ Accepted (req, res) {
               username: session.username,
               joined_at: new Date( Date.now() ),
               platform: req.headers['user-agent'],
-              timezone: 'UTC' + sign + tz
+              timezone: 'UTC' + sign + tz,
+              permission: 'none'
             }))
           })
           .then(()=>{

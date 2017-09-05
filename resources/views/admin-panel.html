@@ -1,0 +1,14 @@
+{% extends 'layouts.html' %}
+{% block body %}
+
+<div class="admin-panel-main">
+  <div class="admin-panel-permissions">
+    <div class="admin-panel-permissions-change">
+      <form action="/changepermission" method="post">
+        {{users}}
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
