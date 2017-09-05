@@ -1,2 +1,3 @@
-GET: / -> APIController@AuthURL
-GET: /verified -> APIController@Verified
+GET: /auth -> APIController@AuthURL
+GET: /accepted -> APIController@Accepted
+GET: /api/mysubreddits -> endpoints@mysubreddits
