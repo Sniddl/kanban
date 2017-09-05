@@ -1,1 +1,2 @@
 GET: /dashboard -> home@dashboard
+GET: /redis -> home@redis
