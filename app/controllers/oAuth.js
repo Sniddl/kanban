@@ -7,7 +7,7 @@ module.exports = {
 
 AuthURL (req, res) {
   let state = 'getAuthURL'
-  let scope = 'identity mysubreddits'
+  let scope = 'identity mysubreddits read'
   let duration = 'permanent'
   let response = 'code'
   let redirect = $env.reddit.redirect

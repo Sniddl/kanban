@@ -17882,8 +17882,6 @@ module.exports = __webpack_require__(46);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_socket_io__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_socket_io___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_socket_io__);
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 __webpack_require__(12);
 
 window.Vue = __webpack_require__(35);
@@ -17891,30 +17889,12 @@ window.axios = __webpack_require__(4);
 window._ = __webpack_require__(2);
 
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_socket_io___default.a, 'http://localhost:8000');
+
 Vue.component('example', __webpack_require__(37));
+Vue.component('endpoint', __webpack_require__(50));
 
 var app = new Vue({
-  el: '#app',
-  data: {
-    endpoints: {
-      mysubreddits: {}
-    }
-  },
-  mounted: function mounted() {
-    this.getEndpoints();
-  },
-
-  methods: {
-    getEndpoints: function getEndpoints() {
-      var _this = this;
-
-      axios.get('/api/mysubreddits').then(function (res) {
-        _this.endpoints.mysubreddits = res.data;
-        // console.log(res.data);
-        console.log(_typeof(_this.endpoints.mysubreddits), _this.endpoints.mysubreddits);
-      });
-    }
-  }
+    el: '#app'
 });
 
 /***/ }),
@@ -43290,7 +43270,7 @@ if(false) {
 /* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(40)(undefined);
+exports = module.exports = __webpack_require__(57)(undefined);
 // imports
 
 
@@ -43301,88 +43281,7 @@ exports.push([module.i, "\n.Example[data-v-74222723] {\n  width: 300px;\n  borde
 
 
 /***/ }),
-/* 40 */
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		return this.map(function (item) {
-			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
-				return "@media " + item[2] + "{" + content + "}";
-			} else {
-				return content;
-			}
-		}).join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-	var content = item[1] || '';
-	var cssMapping = item[3];
-	if (!cssMapping) {
-		return content;
-	}
-
-	if (useSourceMap && typeof btoa === 'function') {
-		var sourceMapping = toComment(cssMapping);
-		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
-		});
-
-		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-	}
-
-	return [content].join('\n');
-}
-
-// Adapted from convert-source-map (MIT)
-function toComment(sourceMap) {
-	// eslint-disable-next-line no-undef
-	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-	return '/*# ' + data + ' */';
-}
-
-
-/***/ }),
+/* 40 */,
 /* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -43812,6 +43711,265 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(55)
+}
+var Component = __webpack_require__(43)(
+  /* script */
+  __webpack_require__(53),
+  /* template */
+  __webpack_require__(54),
+  /* styles */
+  injectStyle,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/Volumes/Storage/Code/kanban/resources/js/components/endpoint.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] endpoint.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-48d8f4e8", Component.options)
+  } else {
+    hotAPI.reload("data-v-48d8f4e8", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 51 */,
+/* 52 */,
+/* 53 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["uri", "id", "description", "scope", "args", "request"],
+  data: function data() {
+    return {
+      result: {},
+      scopes: [],
+      show: false
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    this.scopes = this.scope.split(' ');
+    axios[this.request](this.uri).then(function (res) {
+      _this.result = res.data;
+    });
+  }
+});
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {}, [_c('h4', {
+    attrs: {
+      "id": _vm.id
+    }
+  }, [_c('a', {
+    attrs: {
+      "href": '#' + _vm.id
+    }
+  }, [_vm._v("# endpoints@" + _vm._s(_vm.id) + "(" + _vm._s(_vm.args) + ")")]), _vm._v(" "), _c('button', {
+    on: {
+      "click": function($event) {
+        _vm.show = !_vm.show
+      }
+    }
+  }, [_vm._v("Toggle")])]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.description))]), _vm._v(" "), (_vm.show) ? _c('div', {
+    staticClass: "cloak"
+  }, _vm._l((_vm.result), function(value, key) {
+    return _c('div', {
+      staticClass: "invis"
+    }, [_c('li', [_c('span', _vm._l((_vm.scopes), function(s) {
+      return _c('div', {
+        staticClass: "prop"
+      }, [_c('strong', [_vm._v(_vm._s(s) + ":")]), _vm._v(" " + _vm._s(value[s]) + "\n        ")])
+    }))])])
+  })) : _vm._e()])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-48d8f4e8", module.exports)
+  }
+}
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(56);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(41)("5af190e5", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-48d8f4e8\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./endpoint.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-48d8f4e8\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/sass-loader/lib/loader.js!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./endpoint.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(57)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "\nh4 button {\n  font-size: 0.7em;\n  outline: none !important;\n  padding: 3px 20px;\n  transform: translateY(-2px);\n  margin-left: 20px;\n  border-radius: 9999px;\n  border: 2px solid #2196F3;\n  background: transparent;\n  cursor: pointer;\n  color: #2196f3;\n}\nh4 a {\n  color: #2196f3;\n}\nh4 a:hover, h4 button:hover {\n  color: #51adf6;\n  text-decoration: none;\n}\n.endpoints {\n  padding: 20px;\n}\n.endpoints .cloak {\n    background: #f2f2f2;\n    min-height: 0px;\n    max-height: 200px;\n    display: inline-block;\n    border: 1px solid;\n    overflow: auto;\n    padding: 10px;\n}\n.endpoints .invis {\n    height: 30px;\n    overflow: hidden;\n}\n.endpoints .invis li {\n      list-style: none;\n      overflow-x: auto;\n}\n.endpoints .invis li span {\n        display: flex;\n        align-items: center;\n        justify-content: flex-start;\n        max-width: 1000%;\n}\n.endpoints .invis li span .prop {\n          margin: 4px;\n          padding: 2px 10px;\n          font-size: 0.8em;\n          max-width: 350px;\n          overflow: hidden;\n          white-space: nowrap;\n          text-overflow: ellipsis;\n          border: 1px solid;\n          background: #fff;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
+
 
 /***/ })
 /******/ ]);

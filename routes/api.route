@@ -1,3 +1,4 @@
-GET: /auth -> APIController@AuthURL
-GET: /accepted -> APIController@Accepted
+GET: /auth -> oAuth@AuthURL
+GET: /accepted -> oAuth@Accepted
 GET: /api/mysubreddits -> endpoints@mysubreddits
+GET: /api/unmoderated/:type?/:name? -> endpoints@unmoderated

@@ -5,7 +5,11 @@
   <div class="admin-panel-permissions">
     <div class="admin-panel-permissions-change">
       <form action="/changepermission" method="post">
-        {{users}}
+
+        {% for key,user in users %}
+          {{ key }} {{ user.permission }}
+        {% endfor %}
+
       </form>
     </div>
   </div>

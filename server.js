@@ -60,5 +60,7 @@ app.use((req, res, next) => {
 
 require('./cache/routes.js')(app)
 
-server.listen(8000)
+server.listen(8000, function () {
+  console.log('Server is ready on port 8000');
+})
 //

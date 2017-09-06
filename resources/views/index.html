@@ -4,20 +4,29 @@
 <!-- This is a vue component -->
 {% raw %}
 <div class="endpoints">
-  <a href="#mysubreddits">endpoints@mysubreddits</a>
-  <hr>
-  <h4 id="mysubreddits">endpoints@mysubreddits</h4>
-  <div class="invis" v-for="(sub, key) in endpoints.mysubreddits">
-    <li>
-      <span>
-        <div class="prop"><strong>created_utc:</strong> {{sub.created_utc}}</div>
-        <div class="prop"><strong>display_name:</strong> {{sub.display_name}}</div>
-        <div class="prop"><strong>mod_permissions:</strong> {{sub.mod_permissions}}</div>
-        <div class="prop"><strong>subreddit_type:</strong> {{sub.subreddit_type}}</div>
-        <div class="prop"><strong>subscribers:</strong> {{sub.subscribers}}</div>
-      </span>
-    </li>
-  </div>
+  <h3>Quick Links</h3>
+  <ul>
+    <li><a href="#mysubreddits"># endpoints@mysubreddits</a></li>
+    <li><a href="#unmoderated"># endpoints@unmoderated</a></li>
+  </ul>
+
+  <endpoint
+    id="mysubreddits"
+    uri="/api/mysubreddits"
+    description="Get an array of all the subreddits that the current user has moderation access too."
+    scope="created_utc display_name mod_permissions subreddit_type subscribers"
+    args=""
+    request="get"
+  ></endpoint>
+
+  <endpoint
+    id="unmoderated"
+    uri="/api/unmoderated"
+    description="Get all the posts from a subreddit that haven't been moderated. The type can be 'after' or 'before'. This will get all the posts after a certain name. The name being the name of the last post."
+    scope="created_utc selftext name ups removed"
+    args="type=null, name=null"
+    request="get"
+  ></endpoint>
 </div>
 
 {% endraw %}

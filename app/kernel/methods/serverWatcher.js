@@ -34,7 +34,7 @@ function runServer(e=null) {
 
   require('./routeParser.js')()
   .then(()=>{
-    console.log('ready');
+    console.log('routes ready');
   })
 
   node.on('close', function (code) {

@@ -9186,37 +9186,3 @@ a.text-dark:hover {
   visibility: hidden !important;
 }
 
-.endpoints {
-  padding: 20px;
-}
-
-.endpoints .invis {
-  height: 30px;
-  overflow: hidden;
-}
-
-.endpoints .invis li {
-  list-style: none;
-  overflow-x: auto;
-}
-
-.endpoints .invis li span {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  width: 1000%;
-}
-
-.endpoints .invis li span .prop {
-  margin: 4px;
-  border: 1px solid #eee;
-  padding: 2px 10px;
-  font-size: 0.7em;
-}
-
