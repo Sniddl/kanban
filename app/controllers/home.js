@@ -6,9 +6,8 @@ module.exports = {
     res.end('Check your server log')
   },
 
-  dashboard(req, res) {
+  docs(req, res) {
     res.render('index.html')
-    // res.send(JSON.stringify(req.reddit))
   },
 
   redis(req, res) {

@@ -57,7 +57,7 @@ Accepted (req, res) {
             }))
           })
           .then(()=>{
-            res.redirect('/dashboard')
+            res.redirect('/docs')
           })
 
 
