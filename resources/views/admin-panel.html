@@ -5,14 +5,27 @@
   <div class="admin-panel-permissions">
     <div class="admin-panel-permissions-change">
       <form action="/changepermission" method="post">
-
-        {% for key,user in users %}
-          {{ key }} {{ user.permission }}
-        {% endfor %}
-
+        <select name="user">
+          {% for key,user in users %}
+          <option value={{key}}>{{key}}</option>
+          {% endfor %}
+        </select>
+        <select name="permission">
+          <option value="admin">Admin</option>
+          <option value="fmod">Full Moderator</option>
+          <option value="cmod">Content Moderator</option>
+          <option value="none">None</option>
+        </select>
+        <button type="submit" value="Submit">Apply</button>
       </form>
     </div>
   </div>
 </div>
+
+<style>
+.admin-panel-permissions-change{
+  display: inline-block;
+}
+</style>
 
 {% endblock %}

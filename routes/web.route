@@ -1,3 +1,4 @@
 GET: /redis -> home@redis
 GET: /admin -> admin@get
 GET: /docs -> home@docs
+POST: /changepermission -> admin@change_permission
