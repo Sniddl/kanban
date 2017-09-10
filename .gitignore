@@ -4,4 +4,5 @@ docker-build*
 cache/*
 env*
 !env.example*
-cache/routes.js
+cache/*
+!cache/.gitignore

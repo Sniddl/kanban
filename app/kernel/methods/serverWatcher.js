@@ -14,28 +14,31 @@ watch( p('/app/controllers'), {recursive: true}, (event, name) => {
     runServer(event)
 })
 watch( p('/routes'), {recursive: true}, (event, name) => {
-    runServer(event)
+    runServer(event, true)
 })
-watch( p('/resources'), {recursive: true}, (event, name) => {
+watch( p('/resources/views'), {recursive: true}, (event, name) => {
     runServer(event)
 })
 
-function runServer(e=null) {
-  console.log(e);
+function runServer(e=null, compileRoutes=null) {
   if (node) node.kill()
+  console.log('restarting server...');
   node = spawn('node',
           [
-            path.join(path.normalize(__dirname), '../../../server.js')
+            p('server.js')
           ],
           {
             stdio: 'inherit'
           }
           )
 
-  require('./routeParser.js')()
-  .then(()=>{
-    console.log('routes ready');
-  })
+  if (compileRoutes || !fs.existsSync( p('/cache/routes.js') )){
+    require('./routeParser.js')()
+    .then(()=>{
+      console.log('routes ready');
+    })
+  }
+
 
   node.on('close', function (code) {
    if (code === 8) console.log('Error detected, waiting for changes...');
