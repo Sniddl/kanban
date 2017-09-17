@@ -62,7 +62,7 @@ module.exports = {
   */
   change_permission(req, res) {
     let user          = req.body.user,
-        permission    = req.body.permission
+        permission    = req.body.permission,
         parsed,
         oldpermission,
         ev,
